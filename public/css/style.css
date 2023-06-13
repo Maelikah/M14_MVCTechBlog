@@ -1,0 +1,28 @@
+
+.header {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #F7C100;
+    background-color: #3D315B;
+}
+.navheader {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #93B7BE;
+    background-color: #3D315B;
+}
+.custom-box {
+    background-color: #444B6E;
+    border-radius: 4px;
+    padding: 10px;
+    
+}
+.custom-box:hover {
+    background-color: #F7C100;
+    border-radius: 4px;
+    padding: 10px;
+    
+}
+.main {
+    background-color: #444B6E;
+    font-family: 'Josefin Slab', serif;
+}
+
