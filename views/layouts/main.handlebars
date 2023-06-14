@@ -30,8 +30,9 @@
                 <a id="logout" class="navheader is-size-4 custom-box mr-4">Logout</a>
                 {{else}}
                 <a class="navheader is-size-4 custom-box mr-4" href="/login">Login</a>
-                {{/if}}
                 <a class="navheader is-size-4 custom-box mr-4" href="/signup">Sign Up</a>
+                {{/if}}
+                
             </div>
             </nav>
     </header>
@@ -40,10 +41,17 @@
 
     </main>
 
+    <footer class="footer">
+        <div class="content has-text-centered is-size-4">
+            <p>&copy; Your Tech Blog 2023. All rights reserved.</p>
+        </div>
+    </footer>   
+
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
     <script src="/js/logout.js"></script>
     {{/if}}
+
 </body>
 
 </html>
