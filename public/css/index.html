@@ -19,89 +19,72 @@
     </head>
 
 <body>
-    <header class="header section has-text-centered">
-        <h1 class="header is-size-1">The Tech Blog</h1>
-        
-        <nav class="navheader navbar">
-            <div class="navheader navbar-brand">
-                <a class="navheader is-size-4 custom-box mr-4" href="/">Home</a>
-                <a class="navheader is-size-4 custom-box mr-4" href="/dashboard">Dashboard</a>
+    <header class="hnf section has-text-centered">
+        <h1 class="hnf is-size-1">The Tech Blog</h1>
+        <div>
+            <nav class="navheader has-text-centered mt-3">
+
+                <a class="navheader is-size-5 custom-box mr-4" href="/">Home</a>
+                <a class="navheader is-size-5 custom-box mr-4" href="/dashboard">Dashboard</a>
                 {{#if loggedIn}}  
-                <a id="logout" class="navheader is-size-4 custom-box mr-4">Logout</a>
+                <a id="logout" class="navheader is-size-5 custom-box mr-4">Logout</a>
                 {{else}}
-                <a class="navheader is-size-4 custom-box mr-4" href="/login">Login</a>
+                <a class="navheader is-size-5 custom-box mr-4" href="/login">Login</a>
                 {{/if}}
-                <a class="navheader is-size-4 custom-box mr-4" href="/signup">Sign Up</a>
-            </div>
+                <a class="navheader is-size-5 custom-box mr-4" href="/signup">Sign Up</a>
+                
             </nav>
+        </div>
     </header>
     <main class="main section is-size-5 form-container">
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <div class="card">
-                    <div class="card-content">
-                        <h2 class="title is-2 has-text-centered">Login</h2>
-                        <form class="login-form">
-                        <div class="field">
-                            <label class="label is-size-4" for="email-login">Email:</label>
-                            <div class="control">
-                            <input class="input" type="text" id="email-login" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label is-size-4" for="password-login">Password:</label>
-                            <div class="control">
-                            <input class="input" type="password" id="password-login" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control has-text-centered">
-                            <button class="button is-link " type="submit">Login</button>
-                            </div>
-                        </div>
-                        </form>
+        <div class="has-text-centered" id="blogbox">
+            <h2 class="h2 is-size-3 has-text-weight-bold ">{{title}}</h2>
+            <hr>
+            <p>{{content}}</p>
+            <p class="has-text-right has-text-weight-bold">Blog post by: {{user.userName}} on {{format_date createdAt}}</p>
+            <hr>
+
+            <h3 class="h2 is-size-4 has-text-weight-bold ">Comments:</h3>
+
+            {{#each comments as |comment|}}
+            <p>{{comment.comment}}</p>
+            <p class="has-text-right has-text-weight-bold">{{user.userName}} on {{format_date createdAt}}</p>
+            <hr>
+            {{#if logged_in}}
+            <a href="./dashboard/editComment/{{comment.id}}" class="has-text-success has-text-weight-bold">Edit/Delete Comment</a>
+            {{/if}}
+            {{/each}}
+
+            <br>
+            <br>
+
+            {{#if logged_in}}
+            <div class="row mt-4">
+                <form class="form new-blog-form">
+                    <div class="field">
+                    <label class="label h2 is-size-5" for="blog-desc">Add Comment:<span id="blog_id">{{id}}</span></label>
+                    <div class="control">
+                        <textarea class="textarea" id="blog-desc" name="blog-desc"></textarea>
                     </div>
                     </div>
-                </div>
-                <div class="column">
-                    <div class="card">
-                    <div class="card-content">
-                        <h2 class="title is-4">Signup</h2>
-                        <form class="signup-form">
-                        <div class="field">
-                            <label class="label" for="username-signup">Username:</label>
-                            <div class="control">
-                            <input class="input" type="text" id="username-signup" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label" for="email-signup">Email:</label>
-                            <div class="control">
-                            <input class="input" type="text" id="email-signup" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label" for="password-signup">Password:</label>
-                            <div class="control">
-                            <input class="input" type="password" id="password-signup" />
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                            <button class="button is-primary" type="submit">Signup</button>
-                            </div>
-                        </div>
-                        </form>
+                    <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button navheader is-size-5 custom-box">Create</button>
                     </div>
                     </div>
-                </div>
+                </form>
             </div>
+            {{/if}}
+
+            <script src="./js/comment.js"></script>
         </div>
-        <script src="./js/login.js"></script>
+
 
     </main>
-    <footer class="footer">
+
+    
+
+    <footer class="hnf">
         <div class="content has-text-centered is-size-4">
             <p>&copy; Your Tech Blog 2023. All rights reserved.</p>
         </div>

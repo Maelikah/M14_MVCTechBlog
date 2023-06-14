@@ -19,33 +19,33 @@
     </head>
 
 <body>
-    <header class="header section has-text-centered">
-        <h1 class="header is-size-1">The Tech Blog</h1>
-        
-        <nav class="navheader navbar">
-            <div class="navheader navbar-brand">
-                <a class="navheader is-size-4 custom-box mr-4" href="/">Home</a>
-                <a class="navheader is-size-4 custom-box mr-4" href="/dashboard">Dashboard</a>
+    <header class="hnf section has-text-centered">
+        <h1 class="hnf is-size-1">The Tech Blog</h1>
+        <div>
+            <nav class="navheader has-text-centered mt-3">
+
+                <a class="navheader is-size-5 custom-box mr-4" href="/">Home</a>
+                <a class="navheader is-size-5 custom-box mr-4" href="/dashboard">Dashboard</a>
                 {{#if loggedIn}}  
-                <a id="logout" class="navheader is-size-4 custom-box mr-4">Logout</a>
+                <a id="logout" class="navheader is-size-5 custom-box mr-4">Logout</a>
                 {{else}}
-                <a class="navheader is-size-4 custom-box mr-4" href="/login">Login</a>
-                <a class="navheader is-size-4 custom-box mr-4" href="/signup">Sign Up</a>
+                <a class="navheader is-size-5 custom-box mr-4" href="/login">Login</a>
                 {{/if}}
+                <a class="navheader is-size-5 custom-box mr-4" href="/signup">Sign Up</a>
                 
-            </div>
             </nav>
+        </div>
     </header>
-    <main class="main section has-text-white is-size-5">
+    <main class="main section is-size-5 form-container">
         {{{body}}}
 
     </main>
 
-    <footer class="footer">
+    <footer class="hnf">
         <div class="content has-text-centered is-size-4">
-            <p>&copy; Your Tech Blog 2023. All rights reserved.</p>
+            <p>&copy; Your Tech Blog 2023. All rights reserved</p>
         </div>
-    </footer>   
+    </footer>      
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}

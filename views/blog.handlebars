@@ -1,0 +1,41 @@
+<div class="has-text-centered" id="blogbox">
+    <h2 class="h2 is-size-3 has-text-weight-bold ">{{title}}</h2>
+    <hr>
+    <p>{{content}}</p>
+    <p class="has-text-right has-text-weight-bold">Blog post by: {{user.userName}} on {{format_date createdAt}}</p>
+    <hr>
+
+    <h3 class="h2 is-size-4 has-text-weight-bold ">Comments:</h3>
+
+    {{#each comments as |comment|}}
+    <p>{{comment.comment}}</p>
+    <p class="has-text-right has-text-weight-bold">{{user.userName}} on {{format_date createdAt}}</p>
+    <hr>
+    {{#if logged_in}}
+    <a href="./dashboard/editComment/{{comment.id}}" class="has-text-success has-text-weight-bold">Edit/Delete Comment</a>
+    {{/if}}
+    {{/each}}
+
+    <br>
+    <br>
+
+    {{#if logged_in}}
+    <div class="row mt-4">
+        <form class="form new-blog-form">
+            <div class="field">
+            <label class="label h2 is-size-5" for="blog-desc">Add Comment:<span id="blog_id">{{id}}</span></label>
+            <div class="control">
+                <textarea class="textarea" id="blog-desc" name="blog-desc"></textarea>
+            </div>
+            </div>
+            <div class="field">
+            <div class="control">
+                <button type="submit" class="button navheader is-size-5 custom-box">Create</button>
+            </div>
+            </div>
+        </form>
+    </div>
+    {{/if}}
+
+<script src="./js/comment.js"></script>
+</div>

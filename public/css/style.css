@@ -1,33 +1,54 @@
 
-.header {
+:root {
+    --hnf_bgc:#363c58;
+    --hnf_text: #F7C100;
+    --main_bgc: #3f4773;
+    --main_text: #f6f6f8;
+    --box_bgc: #555e8a;
+}
+
+.hnf {
     font-family: 'Josefin Sans', sans-serif;
-    color: #F7C100;
-    background-color: #3D315B;
+    color: var(--hnf_text);
+    background-color: var(--hnf_bgc);
+}
+
+.h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: var(--hnf_text);
+    
 }
 .navheader {
     font-family: 'Josefin Sans', sans-serif;
-    color: #93B7BE;
-    background-color: #3D315B;
+    color: var(--main_text);
+    background-color: var(--hnf_bgc);
 }
 .custom-box {
-    background-color: #444B6E;
+    background-color: var(--main_bgc);
     border-radius: 4px;
     padding: 10px;
     
 }
 .custom-box:hover {
-    background-color: #F7C100;
+    background-color: var(--hnf_text);
     border-radius: 4px;
     padding: 10px;
     
 }
 .main {
-    background-color: #444B6E;
+    background-color: var(--main_bgc);
     font-family: 'Josefin Slab', serif;
+    color: var(--hnf_text)
 }
 
-.footer {
-    background-color: #3D315B;
-    color: #F7C100;
-    font-family: 'Josefin Slab', serif;
+
+#blogbox {
+    border: solid ;
+    margin: 50px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
+    background-color: var(--box_bgc);
+}
+
+hr {
+    background-color: var(--main_text);
 }
