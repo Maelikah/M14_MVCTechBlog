@@ -1,6 +1,6 @@
 const { Blog } = require('../models');
 
-// creating user data
+// creating blog data
 const blogData = [
     {
         title: "Understanding the CIA Triad: Confidentiality, Integrity, and Availability",
