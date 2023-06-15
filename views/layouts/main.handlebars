@@ -15,7 +15,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Dosis&family=Josefin+Sans:wght@700&family=Josefin+Slab&family=Ysabeau&display=swap" rel="stylesheet">
         
         <!-- Custom stylesheet  -->
-        <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
 
 <body>
@@ -23,32 +23,28 @@
         <h1 class="hnf is-size-1">The Tech Blog</h1>
         <div>
             <nav class="navheader has-text-centered mt-3">
-
                 <a class="button navheader is-size-5 custom-box mr-4" href="/">Home</a>
                 <a class="button navheader is-size-5 custom-box mr-4" href="/dashboard">Dashboard</a>
-                {{#if loggedIn}}  
-                <a id="logout" class="button navheader is-size-5 custom-box mr-4">Logout</a>
+                {{#if loggedIn}}
+                    <a id="logout" class="button navheader is-size-5 custom-box mr-4 logout-button" href="/api/users/logout">Logout</a>
                 {{else}}
-                <a class="button navheader is-size-5 custom-box mr-4" href="/login">Login</a>
+                    <a class="button navheader is-size-5 custom-box mr-4 login-button" href="/login">Login</a>
                 {{/if}}
-                <a class="button navheader is-size-5 custom-box mr-4" href="/signup">Sign Up</a>
-                
             </nav>
         </div>
     </header>
     <main class="main section is-size-5 form-container">
         {{{body}}}
-
     </main>
 
-    <footer class="hnf">
+    <footer class="hnf footer">
         <div class="content has-text-centered is-size-4">
             <p>&copy; Your Tech Blog 2023. All rights reserved</p>
         </div>
     </footer>      
 
     <!-- Render script for logged in users only -->
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
 

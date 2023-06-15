@@ -3,14 +3,13 @@ const logout = async () => {
     const response = await fetch('/api/users/logout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        });
-    
-        // If successful, redirect the browser to the '/' homepage
-        if (response.ok) {
+    });
+
+    if (response.ok) {
         document.location.replace('/');
-        } else {
+    } else {
         alert('Failed to log out.');
-        }
-    };
-    
+    }
+};
+
 document.querySelector('#logout').addEventListener('click', logout);

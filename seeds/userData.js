@@ -3,17 +3,17 @@ const { User } = require('../models');
 // creating user data
 const userData = [
     {
-        userName: "bootcamper",
+        username: "bootcamper",
         email: "bootcamper@bootcamp.com",
         password: "SuperSecret"
     },
     {
-        userName: "newbieBlogger",
+        username: "newbieBlogger",
         email: "newbie@noobland.com",
         password: "123456"
     },
     {
-        userName: "bookwormProf",
+        username: "bookwormProf",
         email: "teacher@school.com",
         password: "P@55w0rd"
     },
