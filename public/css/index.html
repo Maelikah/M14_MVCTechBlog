@@ -24,41 +24,43 @@
         <div>
             <nav class="navheader has-text-centered mt-3">
 
-                <a class="navheader is-size-5 custom-box mr-4" href="/">Home</a>
-                <a class="navheader is-size-5 custom-box mr-4" href="/dashboard">Dashboard</a>
+                <a class="button navheader is-size-5 custom-box mr-4" href="/">Home</a>
+                <a class="button navheader is-size-5 custom-box mr-4" href="/dashboard">Dashboard</a>
                 {{#if loggedIn}}  
-                <a id="logout" class="navheader is-size-5 custom-box mr-4">Logout</a>
+                <a id="logout" class="button navheader is-size-5 custom-box mr-4">Logout</a>
                 {{else}}
-                <a class="navheader is-size-5 custom-box mr-4" href="/login">Login</a>
+                <a class="button navheader is-size-5 custom-box mr-4" href="/login">Login</a>
                 {{/if}}
-                <a class="navheader is-size-5 custom-box mr-4" href="/signup">Sign Up</a>
+                <a class="button navheader is-size-5 custom-box mr-4" href="/signup">Sign Up</a>
                 
             </nav>
         </div>
     </header>
     <main class="main section is-size-5 form-container">
-        <div class="has-text-centered" id="blogbox">
-            <div class="columns mt-4">
-                <div class="column">
-                    <form class="form edit-comment-form">
-                        <div class="field">
-                        <label class="label h2 is-size-3 has-text-weight-bold" for="blog-desc">Edit comment:<span id="blog_id">{{id}}</span></label>
-                        <div class="control">
-                            <textarea class="textarea" id="comment" name="blog-desc">{{comment.comment}}</textarea>
-                        </div>
-                        </div>
-                        <div class="field is-grouped">
-                        <div class="control">
-                            <button type="submit" class="button navheader is-size-5 custom-box">Edit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button navheader is-size-5 custom-box" id="delete-comment" data-id="{{comment.id}}">Delete</button>
-                        </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        
+            {{#each blogs as |blog|}}
+<div class="columns mb-4 project" id="blogbox">
+    <div class="column is-5">
+        <h2>
+        <a class="has-text-success has-text-weight-bold" id="blog-title" href="/blogs/{{blog.id}}">{{blog.title}}</a>
+        </h2>
+    </div>
+    <div class="column is-7">
+        <p>
+        {{blog.content}}
+        </p>
+    </div>
+</div>
+{{/each}}
+
+
+      
+        
+            
+            
+            
+            
+            
             
             
             
