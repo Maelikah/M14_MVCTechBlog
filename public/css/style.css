@@ -40,6 +40,10 @@
     font-family: 'Josefin Slab', serif;
     color: var(--hnf_text)
 }
+.centered-buttons {
+    display: flex;
+    justify-content: center;
+}
 
 
 #blogbox {
