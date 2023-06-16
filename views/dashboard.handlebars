@@ -28,24 +28,34 @@
             </div>
           </form>
         </div>
+
         <div class="column is-half">
           <div class="blog-list">
             <h2 class="h2 is-size-3 has-text-weight-bold">Blog Posts</h2>
+            <br>
             {{#if blogs.length}}
             <div class="columns is-multiline">
               {{#each blogs as |blog|}}
               <div class="column is-half">
-                <div class="card">
-                  <div class="card-content has-background-warning">
-                    <h4>
-                      <a class="is-size-5 has-text-black has-text-weight-bold" id="created-blogs" href="/blogs/{{id}}">
-                        {{blog.title}}
-                      </a>
-                    </h4>
-                    <p class="is-size-6">
-                      posted on: {{format_date createdAt}}
-                    </p>
-                  </div>
+                <div class="card has-background-warning">
+                  <a class="is-size-5 has-text-black has-text-weight-bold" id="created-blogs" href="/blogs/{{id}}">
+                    {{blog.title}}
+                    <div class="card-content has-background-white">
+                      <h4 class="is-size-5 has-text-black ">
+                        {{blog.content}}
+                      </h4>
+                      <br>
+                      <p class="is-size-6">
+                        posted on: {{format_date createdAt}}
+                      </p>
+                      <br>
+                      <div>
+                        <a id="created-blogs" href="/blogs/{{id}}" class="button is-small navheader is-size-5 custom-box-view">View</a>
+                        <a href="./dashboard/editBlog/{{blog.id}}" class="button is-small navheader is-size-5 custom-box-edit">Edit</a>
+                        <button class="button is-small navheader is-size-5 custom-box-del" data-id="{{blog.id}}">Delete</button>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               </div>
               {{/each}}
@@ -60,13 +70,6 @@
   </div>
 </div>
 <script src="./js/dashboard.js"></script>
-
-
-
-
-
-
-
 
 
 

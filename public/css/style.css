@@ -5,6 +5,12 @@
     --main_bgc: #3f4773;
     --main_text: #f6f6f8;
     --box_bgc: #555e8a;
+    --boxview_bgc: #0e7a0d;
+    --boxeview_hbgc: #0b620a;
+    --boxedit_bgc: #3f4773;
+    --boxedit_hbgc: #32395c;
+    --boxdel_bgc: #800000;
+    --boxdel_hbgc: #541a1a;
 }
 
 .hnf {
@@ -35,6 +41,46 @@
     padding: 10px;
     
 }
+.custom-box-view {
+    background-color: var(--boxview_bgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    
+}
+.custom-box-view:hover {
+    background-color: var(--boxeview_hbgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    color: var(--main_text);
+    
+}
+.custom-box-edit {
+    background-color: var(--boxedit_bgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    
+}
+.custom-box-edit:hover {
+    background-color: var(--boxedit_hbgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    color: var(--main_text);
+    
+}
+.custom-box-del {
+    background-color: var(--boxdel_bgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    
+}
+.custom-box-del:hover {
+    background-color: var(--boxdel_hbgc);
+    /* border-radius: 4px;
+    padding: 10px; */
+    color: var(--main_text);
+    
+}
+
 .main {
     flex: 1;
     background-color: var(--main_bgc);
