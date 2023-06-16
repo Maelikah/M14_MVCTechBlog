@@ -1,4 +1,61 @@
 <div class="has-text-centered" id="blogbox">
+    <div class="card has-background-warning"> 
+        <h2 class="h2 is-size-3 has-text-black has-text-weight-bold ">{{title}}</h2>
+        <div class="card-content has-background-white">
+            <p class="is-size-4 has-text-black">
+                {{content}}
+            </p>
+        </div>
+    </div>
+    <br>
+    <div >
+        <form class="form edit-blog-form card">
+            <div class="field has-background-grey-light mt-3">
+                <label class="label h2 is-size-5 has-text-black has-text-weight-bold " for="blog-name"> New Title:</label>
+                <div class="control formbgc">
+                    <input class="input has-background-white" type="text" id="blog-name" name="blog-name" value="{{blog.title}}" />
+                </div>
+            </div>
+            <div class="formbgc"></div>
+            <div class="field has-background-grey-light mt-3">
+                <label class="label h2 is-size-5 has-text-black has-text-weight-bold" for="blog-desc"> New Content:</label>
+                <div class="control formbgc">
+                    <textarea class="textarea has-background-white" id="blog-desc" name="blog-desc">{{blog.content}}</textarea>
+                    <input id="hiddenblogID" hidden="false" value="{{id}}"></input>
+                </div>
+            </div>
+            <div class="formbgc"></div>
+            <div class="field has-background-grey-light mt-3">
+                <br>
+                <div class="control">
+                    <button type="submit" class="button navheader is-size-5 custom-box-edit">Edit</button>
+                </div>
+                <br>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="/js/editBlog.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{!-- <div class="has-text-centered" id="blogbox">
     <div class="columns">
         <div class="column">
             <div class="row">
@@ -7,6 +64,7 @@
                     <br>
                 </div>
             </div>
+
             <form class="form edit-blog-form">
                 <div class="field">
                     <label class="label h2 is-size-5 has-text-weight-bold" for="blog-name">Title:</label>
@@ -34,4 +92,4 @@
 </div>
 <script src="/js/editBlog.js"></script>
 
-
+ --}}

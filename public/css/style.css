@@ -119,3 +119,11 @@ hr {
 .custom-text-right {
     text-align: right;
 }
+
+.formbgc {
+    background-color: var(--box_bgc);
+}
+
+.hidden {
+    display: none;
+}

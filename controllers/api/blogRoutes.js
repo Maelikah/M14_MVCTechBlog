@@ -19,23 +19,25 @@ router.post('/', withAuth, async (req, res) => {
 
 //Update existing blog
 router.put('/:id', withAuth, async (req, res) => {
-
     try {
-        const updateBlog = await Blog.update(
-        {
-            user_id: req.session.user_id,
-            content: req.body.content,
-        },
-        {
-            where: {
-            id: req.params.id,
-            },
-        });
-        if (!updateBlog[0]) {
-        res.status(404).json({ message: 'No blog found with this id!' });
-        return;
+        const blog = await Blog.findByPk(req.params.id);
+
+        if (!blog) {
+            res.status(404).json({ message: 'No blog found with this id!' });
+            return;
         }
-        res.status(200).json(updateBlog);
+
+        // Update only the modified fields
+        if (req.body.title && req.body.title !== blog.title) {
+            blog.title = req.body.title;
+        }
+        if (req.body.content && req.body.content !== blog.content) {
+            blog.content = req.body.content;
+        }
+
+        await blog.save();
+
+        res.status(200).json(blog);
     } catch (err) {
         res.status(500).json(err);
     }
