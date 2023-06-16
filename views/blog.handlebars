@@ -11,7 +11,7 @@
     <p>{{comment.comment}}</p>
     <p class="has-text-right has-text-weight-bold">{{user.username}} on {{format_date createdAt}}</p>
     <hr>
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <a href="./dashboard/editComment/{{comment.id}}" class="has-text-success has-text-weight-bold">Edit/Delete Comment</a>
     {{/if}}
     {{/each}}
@@ -19,7 +19,7 @@
     <br>
     <br>
 
-    {{#if logged_in}}
+    {{#if loggedIn}}
     <div class="row mt-4">
         <form class="form new-blog-form">
             <div class="field">
@@ -37,4 +37,4 @@
     </div>
     {{/if}}
 </div>
-<script src="./js/comment.js"></script>
+<script src="/js/comment.js"></script>

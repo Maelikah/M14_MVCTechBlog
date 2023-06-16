@@ -3,7 +3,7 @@
         <div class="column">
             <div class="row">
                 <div class="col-auto">
-                    <h2 class="h2 is-size-3 has-text-weight-bold" >Edit Blog post:</h2>
+                    <h2 class="h2 is-size-3 has-text-weight-bold" >Edit Blog post</h2>
                     <br>
                 </div>
             </div>
@@ -14,11 +14,12 @@
                         <input class="input" type="text" id="blog-name" name="blog-name" value="{{blog.title}}" />
                     </div>
                 </div>
-                <p class="has-text-right has-text-weight-bold" >Blog post by: {{username}} on {{format_date createdAt}}</p>
+                <p class="has-text-right has-text-weight-bold" >Blog post by: {{user.username}} on {{format_date createdAt}}</p>
                 <div class="field">
                     <label class="label h2 is-size-5 has-text-weight-bold" for="blog-desc">Content:</label>
                     <div class="control">
                         <textarea class="textarea" id="blog-desc" name="blog-desc">{{blog.content}}</textarea>
+                        <input id="hiddenblogID" hidden="true" value="{{blog.id}}"></input>
                         <br>
                     </div>
                 </div>
@@ -31,4 +32,4 @@
         </div>
     </div>
 </div>
-<script src="./js/editBlog.js"></script>
+<script src="/js/editBlog.js"></script>

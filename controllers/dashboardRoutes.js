@@ -12,7 +12,7 @@ router.get('/editBlog/:id', async (req, res) => {
             const blog = blogUpdate.get({plain: true});
             res.render('editBlog', {
                 ...blog,
-                logged_in: true
+                loggedIn: true
             });
         }
     } catch (err) {

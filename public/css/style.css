@@ -69,3 +69,7 @@ body {
 hr {
     background-color: var(--main_text);
 }
+
+.custom-text-right {
+    text-align: right;
+}

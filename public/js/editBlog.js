@@ -4,9 +4,10 @@ async function editFormHandler(event) {
     // Get the post title and post text from the form
     const title = document.querySelector("#blog-name").value;
     const content = document.querySelector("#blog-desc").value;
+    const blogId = document.querySelector("#hiddenblogID").value;
 
     // use the update route to update the post
-    const response = await fetch(`/api/blogs/${id}`, {
+    const response = await fetch(`/api/blogs/${blogId}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,

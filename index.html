@@ -38,20 +38,81 @@
     </header>
     <main class="main section is-size-5 form-container">
         
-            {{#each blogs as |blog|}}
-<div class="columns mb-4 project" id="blogbox">
-    <div class="column is-5">
-        <h2>
-        <a class="has-text-success has-text-weight-bold" id="blog-title" href="/blogs/{{blog.id}}">{{blog.title}}</a>
-        </h2>
-    </div>
-    <div class="column is-7">
-        <p>
-        {{blog.content}}
-        </p>
-    </div>
-</div>
-{{/each}}
+        <div class="has-text-centered" id="blogbox">
+            <div class="columns">
+                <div class="column">
+                    <div class="columns mt-1">
+                        <div class="column is-half">
+                            <h2 class="h2 is-size-2 has-text-weight-bold" >Welcome, {{username}}!</h2>
+                            <br>
+                            <h2 class="h2 is-size-4 has-text-weight-bold">Create a New Blog Post</h2>
+                            <br>
+                            <form class="form new-blog-form">
+                                <div class="field">
+                                    <label class="label h2 is-size-5 has-text-weight-bold" for="blog-name">Title:</label>
+                                    <div class="control">
+                                        <input class="input" type="text" id="blog-name" name="blog-name" />
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label class="label h2 is-size-5 has-text-weight-bold" for="blog-desc">Content:</label>
+                                    <div class="control">
+                                        <textarea class="textarea" id="blog-desc" name="blog-desc"></textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="field">
+                                    <div class="control">
+                                        <button type="submit" class="button navheader is-size-5 custom-box">Create</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    
+                        {{#if blogs.length}}
+                        <div class="blog-list column is-half">
+                            <h2 class="h2 is-size-3 has-text-weight-bold">Blog Posts</h2>
+                        
+                            {{#each blogs as |blog|}}
+                            <div class="columns mb-2">
+                                <div class="column is-half is-offset-one-third">
+                                    <div class="card">
+                                        <div class="card-header has-background-warning">
+                                            <h4>
+                                                <a class="is-size-5 has-text-black has-text-weight-bold" id="created-blogs" href="/blogs/{{id}}">
+                                                {{blog.title}}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div class="card-content">
+                                            <div class="content">
+                                                <!-- Card content goes here -->
+                                                <h4 class="is-size-5 has-text-black has-text-weight-bold">
+                                                    {{blog.content}}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer has-background-warning">
+                                            <h4 class="is-size-6 has-text-black has-text-weight-bold">
+                                                Posted on: {{format_date createdAt}}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                              </div>
+                                <a href="./dashboard/editBlog/{{blog.id}}" class="button navheader is-size-5 custom-box">Edit</a>
+                                <button class="button navheader is-size-5 custom-box" data-id="{{blog.id}}">Delete</button>
+                            </div>
+                            {{/each}}
+                            </div>
+                            {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./js/dashboard.js"></script>
+        
+        
 
 
       
