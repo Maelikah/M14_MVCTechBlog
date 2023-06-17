@@ -1,17 +1,23 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { User, Blog, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // Get all comments
 router.get('/', async (req, res) => { 
     try {
-        const commentData = await Comment.findAll();
+        const commentData = await Comment.findAll({
+            include: {
+                model: User,
+                attributes: ['username'], 
+            },
+        });
+        
         const comments = commentData.map(comment => comment.toJSON());
         
         res.status(200).render('/', { comments });
-        } catch (err) {
+    } catch (err) {
         res.status(500).json(err);
-        }
+    }
 });
 
 // create new comment
@@ -34,49 +40,5 @@ router.post('/', withAuth, async (req, res) => {
         }
 });
 
-
-  // Update existing comment
-router.put('/:id', withAuth, async (req, res) => {
-    try {
-        const updateComment = await Comment.update(
-            {
-                user_id: req.session.user_id,
-                comment: req.body.comment,
-            },
-            {
-                where: {
-                    id: req.params.id,
-                },
-            });
-        if (!updateComment[0]) {
-            res.status(404).json({ message: 'No comment found with this id!' });
-            return;
-        }
-        res.status(200).json(updateComment);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-
-    }
-});
-
-  // Delete comment
-router.delete('/:id', withAuth, async (req, res) => {
-    try {
-        const commentData = await Comment.destroy({
-            where: {
-                id: req.params.id,
-                user_id: req.session.user_id,
-            },
-        });
-        if (!commentData) {
-            res.status(404).json({ message: 'No comment found for this user!' });
-            return;
-        }
-        res.status(200).json(commentData);
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
 module.exports = router;
+

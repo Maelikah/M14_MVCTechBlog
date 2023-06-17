@@ -1,14 +1,26 @@
-{{#each blogs as |blog|}}
 <div class="columns mb-4 project" id="blogbox">
-    <div class="column is-5">
-        <h2>
-        <a class="has-text-success has-text-weight-bold" id="blog-title" href="/blogs/{{blog.id}}">{{blog.title}}</a>
-        </h2>
-    </div>
-    <div class="column is-7">
-        <p>
-        {{blog.content}}
-        </p>
+    <div class="columns is-multiline">
+        {{#each blogs as |blog|}}
+        <div class="column is-half">
+            <div class="card has-background-warning has-text-centered btitle">
+                <a class="is-size-4 has-text-black has-text-weight-bold has-text-justified" id="created-blogs" href="/blogs/{{id}}">
+                {{blog.title}}
+                <div class="card-content has-background-white">
+                    <h4 class="is-size-5 has-text-black bcontent ">
+                    {{blog.content}}
+                    </h4>
+                    <br>
+                    <p class="is-size-5 has-text-right bcontent">
+                    Posted on: {{format_date createdAt}} by {{user.username}}
+                    </p>
+                    <br>
+                    <div>
+                    <a id="created-blogs" href="/blogs/{{id}}" class="button is-small navheader is-size-5 custom-box-edit">Add/View Comments</a>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+        {{/each}}
     </div>
 </div>
-{{/each}}

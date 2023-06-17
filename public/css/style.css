@@ -24,6 +24,16 @@
     color: var(--hnf_text);
     
 }
+.btitle {
+    font-family: 'Josefin Sans', sans-serif;
+}
+.bcontent {
+    font-family: 'Chilanka', cursive;
+}
+.bcontent2 {
+    font-family: 'Dosis', sans-serif;
+}
+
 .navheader {
     font-family: 'Josefin Sans', sans-serif;
     color: var(--main_text);

@@ -2,7 +2,8 @@ const newFormHandler = async (event) => {
     event.preventDefault();
 
     const comment = document.querySelector('#blog-desc').value;
-    const blog_id = document.querySelector('#blog_id').textContent;
+    const blog_id = document.querySelector('#blog_id').value;
+    
 
      // create and post new comment page
     if (comment) {
