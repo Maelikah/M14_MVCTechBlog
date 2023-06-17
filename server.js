@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const session = require('express-session');
@@ -13,7 +15,7 @@ const PORT = process.env.PORT || 3001;
 
 // Set up sessions with cookies
 const sess = {
-    secret: process.env.SESSION_SECRET,
+    secret: 'SuperSecretSecret',
     cookie: {
         // Stored in milliseconds
         maxAge: parseInt(process.env.SESSION_MAX_AGE),
