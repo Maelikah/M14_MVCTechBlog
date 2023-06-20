@@ -5,15 +5,16 @@ const withAuth = require('../../utils/auth');
 // Get all comments
 router.get('/', async (req, res) => { 
     try {
+        console.log("HELLO WORLD!")
         const commentData = await Comment.findAll({
-            include: {
+            include: [{
                 model: User,
-                attributes: ['username'], 
-            },
+             //   attributes: ['username'], 
+            }],
         });
         
         const comments = commentData.map(comment => comment.toJSON());
-        
+        console.log("this are the comments", comments);
         res.status(200).render('/', { comments });
     } catch (err) {
         res.status(500).json(err);
@@ -32,7 +33,7 @@ router.post('/', withAuth, async (req, res) => {
             user_id: req.session.user_id,
             
         });
-    
+        console.log(newComment);
         res.status(200).json(newComment);
         } catch (err) {
         console.log(err);
