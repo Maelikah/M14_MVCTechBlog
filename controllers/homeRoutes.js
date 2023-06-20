@@ -33,13 +33,11 @@ router.get('/blogs/:id', async (req, res) => {
         const blogData = await Blog.findByPk(req.params.id, {
             include: [
                 {
-                    model: User,
-                    attributes: ['username'],
+                  model: Comment,
+                  include: User, // Include the User model for each Comment
                 },
-                {
-                    model: Comment,
-                },
-            ],
+                User, // Include the User model for the blog itself
+              ],
     });
 
     // Serialize data to be used by handlebars
